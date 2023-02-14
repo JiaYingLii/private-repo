@@ -7,5 +7,6 @@ def hello(i):
     a = classifier(i)
     return a
 
+
 iface = gr.Interface(fn=hello, inputs="text", outputs="text")
 iface.launch()
