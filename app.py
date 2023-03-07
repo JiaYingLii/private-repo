@@ -2,9 +2,9 @@ from transformers import pipeline
 import gradio as gr
 
 
-# def hello(i):
-#     classifier = pipeline("sentiment-analysis")
-#     a = classifier(i)
+def hello(i):
+    classifier = pipeline("sentiment-analysis")
+    a = classifier(i)
     return a
 
 
