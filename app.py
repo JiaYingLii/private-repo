@@ -1,11 +1,10 @@
-from transformers import pipeline
-import gradio as gr
-import sys
+import logging
 
+import gradio as gr
 
 def hello(i):
-    print("run fail test")
-    sys.exit(-1)
+    logging.error("log fail test")
+    return "hello"
 
 
 iface = gr.Interface(fn=hello, inputs="text", outputs="text")
