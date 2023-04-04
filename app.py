@@ -1,11 +1,14 @@
+import os
 import logging
 
 import gradio as gr
+import flask
 
-def hello(i):
-    logging.error("log fail test")
-    return "hello"
-
-
-iface = gr.Interface(fn=hello, inputs="text", outputs="text")
+def greet(name):
+    print(os.environ.get('test1'))
+    logging.error("+++++")
+    logging.error(os.environ.get('test'))
+    logging.error("-----")
+    return "Hello" + name + "!!"
+iface = gr.Interface(fn=greet, inputs="text", outputs="text")
 iface.launch()
