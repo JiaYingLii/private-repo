@@ -2,7 +2,6 @@ import os
 import logging
 
 import gradio as gr
-import flask
 
 def greet(name):
     print(os.environ.get('test1'))
