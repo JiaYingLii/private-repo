@@ -3,9 +3,7 @@ import gradio as gr
 
 
 def hello(i):
-#     classifier = pipeline("sentiment-analysis")
-#     a = classifier(i)
-    return a
+    return "dev"
 
 
 
