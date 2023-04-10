@@ -9,5 +9,7 @@ def greet(name):
     logging.error(os.environ.get('test'))
     logging.error("-----")
     return "Hello" + name + "!!"
+
+
 iface = gr.Interface(fn=greet, inputs="text", outputs="text")
 iface.launch()
