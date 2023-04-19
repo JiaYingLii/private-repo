@@ -4,11 +4,9 @@ import logging
 import gradio as gr
 
 def greet(name):
-    print(os.environ.get('test1'))
-    logging.error("+++++")
-    logging.error(os.environ.get('test'))
-    logging.error("-----")
-    return "Hello" + name + "!!"
+    classifier = pipeline("sentiment-analysis")
+    a = classifier(i)
+    return a
 
 
 iface = gr.Interface(fn=greet, inputs="text", outputs="text")
