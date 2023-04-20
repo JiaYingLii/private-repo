@@ -7,7 +7,7 @@ import gradio as gr
 
 def greet(name):
     classifier = pipeline("sentiment-analysis")
-    a = classifier(i)
+    a = classifier(name)
     return a
 
 
