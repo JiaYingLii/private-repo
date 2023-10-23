@@ -1,22 +1,18 @@
-import os
-import logging
-from transformers import pipeline
+from subprocess import Popen, PIPE, STDOUT
 
 
-import gradio as gr
-
-def greet(name):
-    classifier = pipeline("sentiment-analysis")
-    a = classifier(name)
-    return a
+def exe_shell(command: str, shell: str = '/bin/bash'):
+    return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
 
 
-print("--------print env-----------")
-print("http_proxy: " + os.getenv('http_proxy'))
-print("https_proxy: " + os.getenv('https_proxy'))
-print("no_proxy: " + os.getenv('no_proxy'))
-iface = gr.Interface(fn=greet, inputs="text", outputs="text")
-
-
-iface.launch()
-
+if __name__ == '__main__':
+    process=exe_shell(command="echo 'start to run shell script' && bash run_streamlit.sh")
+    try:
+        with (process.stdout):
+            y = 0
+            for line in iter(process.stdout.readline, b''):
+                # s = str(line).replace("b'", "").replace("'", "").replace("\\n", "")
+                s = line.decode('utf-8')
+                print(s)
+    except Exception as e:
+        print(e)
